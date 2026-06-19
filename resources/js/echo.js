@@ -12,4 +12,5 @@ window.Echo = new Echo({
     forceTLS: false, // ← dipaksa false biar pake ws://
     enabledTransports: ["ws"], // ← cuma ws, ga pake wss
     // enabledTransports: ["ws", "wss"],
+    //
 });
