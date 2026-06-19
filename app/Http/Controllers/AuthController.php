@@ -81,6 +81,8 @@ class AuthController extends Controller
         // Validasi: email harus unik di tabel 'pengguna'
         $request->validate([
             'nama' => ['required', 'string', 'max:100'],
+            'jenis_kelamin' => ['required', 'in:L,P'],
+            'tanggal_lahir' => ['required', 'date', 'before:today', 'after:1900-01-01'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:pengguna'],
             'password' => ['required', 'min:8', 'confirmed'], // 'confirmed' butuh input 'password_confirmation'
         ]);
@@ -88,6 +90,8 @@ class AuthController extends Controller
         // Masukkan data ke Database via Model Pengguna
         $user = Pengguna::create([
             'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tanggal_lahir' => $request->tanggal_lahir,
             'email' => $request->email,
             'kata_sandi' => Hash::make($request->password),
         ]);

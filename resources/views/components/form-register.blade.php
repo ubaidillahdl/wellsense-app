@@ -19,6 +19,43 @@
                         @enderror
                     </div>
 
+                    {{-- Jenis Kelamin --}}
+                    <div class="sm:pb-[1vh] pb-[1.5vh]">
+                        <label class="block sm:mb-[0.3vh] mb-[0.5vh] px-[1vh]">Jenis Kelamin</label>
+
+                        <div class="sm:ps-[1vh] ps-[1.5vh] ">
+                            <label class="flex items-center gap-1 cursor-pointer">
+                                <input type="radio" name="jenis_kelamin" value="L"
+                                    class="w-[1.9vh] h-[1.9vh] sm:w-[1.5vh] sm:h-[1.5vh]"
+                                    {{ old('jenis_kelamin') == 'L' ? 'checked' : '' }} required>
+                                <span class="text-[1.9vh] sm:text-[1.5vh]">Laki-laki</span>
+                            </label>
+
+                            <label class="flex items-center gap-1 cursor-pointer">
+                                <input type="radio" name="jenis_kelamin" value="P"
+                                    class="w-[1.9vh] h-[1.9vh] sm:w-[1.5vh] sm:h-[1.5vh]"
+                                    {{ old('jenis_kelamin') == 'P' ? 'checked' : '' }} required>
+                                <span class="text-[1.9vh] sm:text-[1.5vh]">Perempuan</span>
+                            </label>
+                        </div>
+
+                        @error('jenis_kelamin')
+                            <span class="text-red-500 text-sm block text-center">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    {{-- Tanggal Lahir --}}
+                    <div class="sm:pb-[1vh] pb-[1.5vh]">
+                        <label class="block sm:mb-[0.3vh] mb-[0.5vh] px-[1vh]">Tanggal Lahir</label>
+                        <input type="date" name="tanggal_lahir"
+                            class="w-full sm:h-[3vh] h-[4vh] bg-slate-900  px-[2vh] rounded-full border-none  focus:ring-[0.15vh] focus:ring-gray-600 text-white text-[1.9vh] sm:text-[1.5vh]"
+                            required value="{{ old('tanggal_lahir') }}">
+
+                        @error('tanggal_lahir')
+                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     {{-- Email --}}
                     <div class="sm:pb-[1vh] pb-[1.5vh]">
                         <label class="block sm:mb-[0.3vh] mb-[0.5vh] px-[1vh]">Email</label>
